@@ -1,0 +1,42 @@
+<h1>aaaaa</h1>
+
+<div class="container">
+  <h2>Estoque de Produtos - Loja de Variedades</h2>
+
+  <table class="tabela-produtos">
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of produtos; track item.id) {
+        <tr>
+          <td>{{ item.nome }}</td>
+          <td>{{ item.categoria }}</td>
+          <td class="preco">{{ item.preco |currency:'BRL'}}</td>
+          <td [class.estoque-baixo]="item.quantidadeEstoque < 5">
+            {{ item.quantidadeEstoque }} un
+          </td>
+          <td>
+            <span class="badge" [class.ativo]="item.ativo" [class.inativo]="!item.ativo">
+              {{ item.ativo ? 'Ativo' : 'Inativo' }}
+            </span>
+          </td>
+          <td>
+            <button mat-raised-button color="warn" (click)="excluirProduto(item.id!)">Deletar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  <button mat-raised-button color="warn" (click)="criarProduto(produtoTeste)">criar</button>
+  <button mat-raised-button color="warn" (click)="alterarProduto(250, produtoTesteAlterado)">alterar id 250</button>
+
+
+</div>

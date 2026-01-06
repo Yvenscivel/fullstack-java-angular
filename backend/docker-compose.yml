@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:17
+    container_name: postgres_loja
+    environment:
+      POSTGRES_DB: loja_variedades
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
