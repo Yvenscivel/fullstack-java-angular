@@ -1,44 +1,62 @@
 /* ============================= */
-/* NAVBAR                       */
+/* NAVBAR TIPO VAREJO            */
 /* ============================= */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #161b22;
-  border-bottom: 1px solid #30363d;
+  /* Azul "Royal" moderno. Se preferir Laranja (estilo Amazon), use #ea580c */
+  background-color: #2563eb; 
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-bottom: none; /* Removemos a borda simples */
 }
 
 /* Logo / Título */
 .logo {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #e6edf3;
+  font-size: 1.5rem; /* Um pouco maior */
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Opcional: Adicionar um ícone de sacola antes do texto no HTML */
+.logo::before {
+  content: '\e93a'; /* Código do ícone de shopping bag do PrimeIcons */
+  font-family: 'primeicons';
+  font-size: 1.2rem;
 }
 
 /* Link */
 .nav-link {
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #58a6ff; /* Azul GitHub */
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  color: #ffffff; /* Texto branco */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo translúcido sutil */
+  padding: 8px 16px;
+  border-radius: 9999px; /* Botão arredondado (Pill shape) */
+  transition: all 0.2s ease;
 }
 
 .nav-link:hover {
-  background-color: rgba(88, 166, 255, 0.15);
-  color: #79c0ff;
+  background-color: #ffffff; /* Fundo branco ao passar o mouse */
+  color: #2563eb;            /* Texto vira azul */
+  transform: translateY(-1px); /* Leve efeito de subida */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* ============================= */
-/* DIVISOR                      */
+/* DIVISOR (Opcional, pode remover se quiser) */
 /* ============================= */
 .divider {
   border: none;
-  border-top: 1px solid #30363d;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d1d5db, transparent);
   margin: 0;
 }
