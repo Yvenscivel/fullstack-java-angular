@@ -1,8 +1,22 @@
-<nav class="navbar">
-  <h1 class="logo">Loja de Variedades - Inicío</h1>
-  <a routerLink="/produtos" class="nav-link">Listar Produtos</a>
-</nav>
+<div class="layout">
+  <aside class="sidebar">
+    <h1 class="logo">🛒 Loja</h1>
 
-<hr class="divider">
+    <nav class="menu">
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+        📊 Dashboard
+      </a>
+      <a routerLink="/produtos" routerLinkActive="active" class="nav-link">
+        📦 Produtos
+      </a>
+    </nav>
 
-<router-outlet></router-outlet>
+    <footer class="sidebar-footer">
+      <span>© Yvenscivel - 2026</span>
+    </footer>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

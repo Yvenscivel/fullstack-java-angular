@@ -1,0 +1,131 @@
+<div class="container">
+
+  <h1>Dashboard de Produtos</h1>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Total de Produtos</h3>
+      <p>{{ totalProdutos }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Produtos Ativos</h3>
+      <p>{{ produtosAtivos }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Produtos Inativos</h3>
+      <p>{{ produtosInativos }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Valor em Estoque</h3>
+      <p>R$ {{ valorEstoque | number:'1.2-2' }}</p>
+    </div>
+  </div>
+
+  <div class="graficos">
+  <!-- PRODUTOS POR CATEGORIA -->
+  <div class="grafico">
+    <h3>Produtos por Categoria</h3>
+
+    <div class="barra"
+         *ngFor="let cat of categoriasResumo">
+      <span class="label">{{ cat.nome }}</span>
+
+      <div class="barra-externa">
+        <div class="barra-interna"
+             [style.width.%]="cat.percentual">
+        </div>
+      </div>
+
+      <span class="valor">{{ cat.quantidade }}</span>
+    </div>
+  </div>
+
+  <!-- ATIVOS x INATIVOS -->
+    <div class="grafico">
+        <h3>Ativos x Inativos</h3>
+
+        <div class="status">
+        <span>Ativos</span>
+        <div class="barra-externa">
+            <div class="barra-interna ativo"
+                [style.width.%]="percentualAtivos">
+            </div>
+        </div>
+        <span>{{ percentualAtivos | number:'1.0-0' }}%</span>
+        </div>
+
+        <div class="status">
+        <span>Inativos</span>
+        <div class="barra-externa">
+            <div class="barra-interna inativo"
+                [style.width.%]="percentualInativos">
+            </div>
+        </div>
+        <span>{{ percentualInativos | number:'1.0-0' }}%</span>
+        </div>
+    </div>
+
+
+    <div class="listas">
+    <!-- ESTOQUE BAIXO -->
+        <div class="painel">
+            <h3>Produtos com Estoque Baixo</h3>
+
+            <table>
+            <thead>
+                <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+                <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let p of estoqueBaixo">
+                <td>{{ p.nome }}</td>
+                <td>{{ p.categoria }}</td>
+                <td>{{ p.quantidadeEstoque }}</td>
+                <td>⚠️</td>
+                </tr>
+
+                <tr *ngIf="estoqueBaixo.length === 0">
+                <td colspan="4">Nenhum produto com estoque baixo</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <!-- LISTA DE PRODUTOS -->
+        <div class="painel">
+            <h3>Lista de Produtos</h3>
+
+            <table>
+            <thead>
+                <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+                <th>Estoque</th>
+                <th>Ativo</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let p of produtos">
+                <td>{{ p.nome }}</td>
+                <td>{{ p.categoria }}</td>
+                <td>R$ {{ p.preco | number:'1.2-2' }}</td>
+                <td>{{ p.quantidadeEstoque }}</td>
+                <td>{{ p.ativo ? '✔️' : '✖️' }}</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <button class="btn">+ Novo Produto</button>
+        </div>
+    </div>
+</div>

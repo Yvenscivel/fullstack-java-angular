@@ -72,6 +72,7 @@ interface ExportColumn {
         }`
     ]
 })
+
 export class TableProductsDemo implements OnInit {
     productDialog: boolean = false;
 
