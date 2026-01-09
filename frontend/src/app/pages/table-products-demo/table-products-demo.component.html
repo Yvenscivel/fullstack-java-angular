@@ -4,7 +4,6 @@
         <ng-template #start>
             <p-button label="Novo" icon="pi pi-plus" class="mr-2" (onClick)="openNew()" />
             <p-button severity="danger" label="Excluir" icon="pi pi-trash" outlined (onClick)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length" />
-            <p-button label="Exportar" icon="pi pi-upload" severity="secondary" (onClick)="exportCSV()" />        
         </ng-template>
     
 

@@ -1,10 +1,21 @@
-services:
-  db:
-    image: postgres:17
-    container_name: postgres_loja
-    environment:
-      POSTGRES_DB: loja_variedades
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
+fetch("https://api.plataforma-oftlessons.com/api/usuarios/update/27245", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "pt-BR,pt;q=0.5",
+    "authorization": "Bearer	ImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiJkYTE3YzE1Ny03NTg2LTRiYzEtYjgzMS05NDgxNDZlOTg0NTUiLCJjbGllbnRfaWQiOiJvZnRsZXNzb25zLXByb2QiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.c3ITm1cI_Dr8df_j6JeLGOpVodJ-k4MeO3yM_oSXZsc",
+    "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryyfZTgfjgQloso6JY",
+    "priority": "u=1, i",
+    "sec-ch-ua": "\"Brave\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "cross-site",
+    "sec-gpc": "1"
+  },
+  "referrer": "https://oftlessons.vercel.app/",
+  "body": "------WebKitFormBoundaryyfZTgfjgQloso6JY\r\nContent-Disposition: form-data; name=\"usuario\"; filename=\"blob\"\r\nContent-Type: application/json\r\n\r\n{\"id\":27245,\"username\":null,\"email\":\"locizety@forexzig.com\",\"nome\":\"abc\",\"password\":\"@Admin123\",\"stripeCustomerId\":null,\"stripeSubscriptionId\":\"trial_deab6acd-1167-4308-a017-c49db400dc9b\",\"planoId\":\"price_1RfQNuRqk5LY28HmNOrSW7Y7\",\"telefone\":\"9998076588\",\"cidade\":null,\"estado\":null,\"fotoUrl\":null,\"bolsaAssinatura\":false,\"diasDeTeste\":7,\"dataInicioBolsa\":null,\"dataNascimento\":null,\"createdAt\":\"2026-01-08T14:26:43.188603\",\"updatedAt\":\"2026-01-08T15:05:01.940726\",\"tipoDeEstudante\":\"RESIDENTE_R1\",\"perfilCompleto\":false,\"ofensivaAtual\":1,\"dataUltimaOfensiva\":\"2026-01-08\"}\r\n------WebKitFormBoundaryyfZTgfjgQloso6JY--\r\n",
+  "method": "PUT",
+  "mode": "cors",
+  "credentials": "include"
+});

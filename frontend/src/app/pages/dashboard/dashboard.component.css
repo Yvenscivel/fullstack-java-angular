@@ -6,8 +6,10 @@
 
 h1 {
   margin-bottom: 20px;
+  color: #333;
 }
 
+/* CARDS COM INTERATIVIDADE */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -18,21 +20,34 @@ h1 {
   background: #fff;
   padding: 16px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   text-align: center;
+  border: 1px solid transparent; 
+  /* Transição suave para todas as mudanças */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+/* Efeito de "levitar" e mudar a borda ao passar o mouse */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  border-color: #4CAF50; /* Verde combinando com sua marca */
 }
 
 .card h3 {
   font-size: 14px;
-  color: #555;
+  color: #666;
 }
 
 .card p {
   font-size: 24px;
   font-weight: bold;
   margin-top: 8px;
+  color: #2c3e50;
 }
 
+/* GRÁFICOS */
 .graficos {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -56,13 +71,14 @@ h1 {
 
 .label {
   width: 90px;
-  font-size: 14px;
+  font-size: 13px;
+  color: #555;
 }
 
 .barra-externa {
   flex: 1;
   height: 10px;
-  background: #e0e0e0;
+  background: #eee;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -70,21 +86,20 @@ h1 {
 .barra-interna {
   height: 100%;
   background: #1976d2;
+  transition: width 0.5s ease-in-out; /* Animação da barra ao carregar */
 }
 
-.barra-interna.ativo {
-  background: #2e7d32;
-}
-
-.barra-interna.inativo {
-  background: #c62828;
-}
+.barra-interna.ativo { background: #2e7d32; }
+.barra-interna.inativo { background: #c62828; }
 
 .valor {
-  width: 30px;
+  width: 35px;
   text-align: right;
+  font-size: 12px;
+  font-weight: bold;
 }
 
+/* LISTAS */
 .listas {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -106,23 +121,36 @@ table {
 }
 
 th, td {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
+  padding: 12px 8px; /* Mais espaçamento para respirar */
+  border-bottom: 1px solid #eee;
   font-size: 14px;
 }
 
 th {
   text-align: left;
-  color: #555;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
 }
 
+/* BOTÃO COM FEEDBACK */
 .btn {
-  margin-top: 10px;
-  padding: 8px 12px;
+  margin-top: 15px;
+  padding: 10px 20px;
   border: none;
   background: #1976d2;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: 500;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
+.btn:hover {
+  background: #1565c0;
+}
+
+.btn:active {
+  transform: scale(0.98); /* Feedback de clique */
+}
