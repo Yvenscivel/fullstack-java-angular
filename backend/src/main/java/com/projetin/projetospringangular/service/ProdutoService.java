@@ -25,6 +25,11 @@ public class ProdutoService {
         return repository.save(produto);
     }
 
+    public List<Produto> salvarEmLote(List<Produto> produtos) {
+    return repository.saveAll(produtos);
+}
+
+
     public List<Produto> listarTodos() {
         return repository.findAll();
     }
