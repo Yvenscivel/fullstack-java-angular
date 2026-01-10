@@ -1,6 +1,12 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { DashboardComponent } from './dashboard.component';
+import { ProdutoService } from '../../services/produto.service';
+import { of } from 'rxjs';
+
+// Mock simples do service
+const produtoServiceMock = {
+  listarTodos: () => of([])
+};
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,16 +14,17 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DashboardComponent]
-    })
-    .compileComponents();
+      imports: [DashboardComponent], // standalone
+      providers: [
+        { provide: ProdutoService, useValue: produtoServiceMock }
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('deve criar o componente', () => {
     expect(component).toBeTruthy();
   });
 });

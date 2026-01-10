@@ -26,17 +26,22 @@
   <div class="graficos">
     <div class="grafico">
       <h3>Produtos por Categoria</h3>
-      @for (cat of categoriasResumo; track cat.nome) {
+      @for (cat of categoriasResumo; track cat.nome; let i = $index) {
         <div class="barra">
           <span class="label">{{ cat.nome }}</span>
+
           <div class="barra-externa">
-            <div class="barra-interna" [style.width.%]="cat.percentual"></div>
+            <div
+              class="barra-interna"
+              [style.width.%]="cat.percentual"
+              [style.background]="cores[i % cores.length]">
+            </div>
           </div>
           <span class="valor">{{ cat.quantidade }}</span>
         </div>
       } @empty {
         <p>Sem dados de categoria.</p>
-      }
+      } 
     </div>
 
     <div class="grafico">
@@ -81,7 +86,7 @@
             </tr>
           } @empty {
             <tr>
-              <td colspan="4">✅ Estoque em dia!</td>
+              <td colspan="4">Estoque em dia!</td>
             </tr>
           }
         </tbody>
