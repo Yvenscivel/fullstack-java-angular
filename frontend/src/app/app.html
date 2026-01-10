@@ -1,15 +1,22 @@
 <div class="layout">
   <aside class="sidebar">
-    <h1 class="logo">🛒 Loja</h1>
+    <div class="top-section">
+      <div class="logo">
+        <i class="pi pi-shopping-cart" style="font-size: 1.5rem"></i>
+        <span>Minha Loja</span>
+      </div>
 
-    <nav class="menu">
-      <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
-        📊 Dashboard
-      </a>
-      <a routerLink="/produtos" routerLinkActive="active" class="nav-link">
-        📦 Produtos
-      </a>
-    </nav>
+      <nav class="menu">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+          <i class="pi pi-chart-bar icon"></i>
+          <span>Dashboard</span>
+        </a>
+        <a routerLink="/produtos" routerLinkActive="active" class="nav-link">
+          <i class="pi pi-box icon"></i>
+          <span>Produtos</span>
+        </a>
+      </nav>
+    </div>
 
     <footer class="sidebar-footer">
       <span>© Yvenscivel - 2026</span>
