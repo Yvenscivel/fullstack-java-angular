@@ -3,6 +3,8 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { Produto } from '../../models/produto';
 import { ProdutoService } from '../../services/produto.service';
+import { TagModule } from 'primeng/tag';
+import { RouterLink } from "@angular/router";
 
 // Registra o formato brasileiro para números e moedas
 registerLocaleData(localePt);
@@ -10,7 +12,7 @@ registerLocaleData(localePt);
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TagModule, RouterLink],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -24,6 +26,14 @@ export class DashboardComponent implements OnInit {
   percentualAtivos = 0;
   percentualInativos = 0;
   estoqueBaixo: Produto[] = [];
+
+  cores = [
+  '#1976d2', // azul
+  '#2e7d32', // verde
+  '#f9a825', // amarelo
+  '#8e24aa', // roxo
+  '#c62828', // vermelho
+  ];
 
   constructor(
     private produtoService: ProdutoService,
@@ -91,5 +101,17 @@ export class DashboardComponent implements OnInit {
   filtrarEstoqueBaixo() {
     // Pega produtos com 5 ou menos unidades no estoque
     this.estoqueBaixo = this.produtos.filter(p => p.quantidadeEstoque !== undefined && p.quantidadeEstoque <= 5);
+  }
+
+   getSeverity(quantidade: number) {
+     if (quantidade === 0) return 'danger';
+     if (quantidade < 10) return 'warn';
+     return 'success';
+   }
+
+  getStatusLabel(quantidade: number): string {
+    if (quantidade === 0) return 'Esgotado';
+    if (quantidade < 10) return 'Baixo Estoque';
+    return 'Disponível';
   }
 }

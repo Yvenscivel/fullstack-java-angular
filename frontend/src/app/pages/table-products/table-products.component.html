@@ -64,13 +64,19 @@
                         <p-sortIcon field="categoria" />
                     </div>
                 </th>
+                <th pSortableColumn="quantidadeEstoque" style="min-width:10rem">
+                    <div class="flex items-center gap-2">
+                        Estoque
+                    <p-sortIcon field="quantidadeEstoque"/>
+                    </div>
+                </th>
                 <th pSortableColumn="quantidadeEstoque" style="min-width: 12rem">
                     <div class="flex items-center gap-2">
                         Status
                         <p-sortIcon field="quantidadeEstoque" />
                     </div>
                 </th>
-                <th style="min-width: 8rem">Ativo</th>
+                <th pSortableColumn="quantidadeEstoque" style="min-width: 8rem">Ativo</th>
                 <th style="min-width: 12rem"></th>
             </tr>
         </ng-template>
@@ -83,11 +89,12 @@
                 <td>{{ produto.nome }}</td>
                 <td>{{ produto.preco | currency: 'BRL' }}</td>
                 <td>{{ produto.categoria }}</td>
+                <td>{{produto.quantidadeEstoque}}</td>
                 <td>
                     <p-tag [value]="getStatusLabel(produto.quantidadeEstoque)" [severity]="getSeverity(produto.quantidadeEstoque)" />
                 </td>
                 <td>
-                    <i class="pi" [ngClass]="{'true-icon pi-check-circle text-green-500': produto.ativo, 'false-icon pi-times-circle text-red-500': !produto.ativo}"></i>
+                    <i class="pi" [ngClass]="{'true-icon pi-check-circle text-red-500': produto.ativo, 'false-icon pi-times-circle text-red-500': !produto.ativo}"></i>
                 </td>
                 <td>
                     <p-button icon="pi pi-pencil" class="mr-2" [rounded]="true" [outlined]="true" (click)="editProduct(produto)" />

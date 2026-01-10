@@ -72,12 +72,12 @@
           </tr>
         </thead>
         <tbody>
-          @for (p of estoqueBaixo.slice(0, 6); track p.id) {
+          @for (p of estoqueBaixo.slice(0, 5); track p.id) {
             <tr>
               <td>{{ p.nome }}</td>
               <td>{{ p.categoria }}</td>
               <td>{{ p.quantidadeEstoque }}</td>
-              <td><span style="color: #e67e22;">⚠️ Baixo</span></td>
+              <td><p-tag [value]="getStatusLabel(p.quantidadeEstoque)" [severity]="getSeverity(p.quantidadeEstoque)"/></td>
             </tr>
           } @empty {
             <tr>
@@ -101,13 +101,18 @@
           </tr>
         </thead>
         <tbody>
-          @for (p of produtos.slice(-5); track p.id) {
+          @for (p of produtos.slice(-5).reverse(); track p.id) {
             <tr>
               <td>{{ p.nome }}</td>
               <td>{{ p.categoria }}</td>
               <td>{{ p.preco | currency:'BRL' }}</td>
               <td>{{ p.quantidadeEstoque }}</td>
-              <td>{{ p.ativo ? '✔️' : '✖️' }}</td>
+              <td>
+                <p-tag 
+                  [icon]="p.ativo ? 'pi pi-check' : 'pi pi-times'" 
+                  [severity]="p.ativo ? 'success' : 'danger'" 
+                  [value]="p.ativo ? 'Ativo' : 'Inativo'" />
+              </td>
             </tr>
           } @empty {
             <tr>
@@ -116,7 +121,7 @@
           }
         </tbody>
       </table>
-      <button class="btn">Visualizar Todos</button>
+      <p-tag class="btn" icon="pi pi-search" severity="info" value="Visualizar Todos" routerLink="/produtos"/>
     </div>
   </div>
 </div>

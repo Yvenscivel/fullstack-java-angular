@@ -26,7 +26,7 @@ import { Produto } from '../../models/produto';
 
 @Component({
     selector: 'app-produtos-crud',
-    templateUrl: 'table-products-demo.component.html',
+    templateUrl: 'table-products.component.html',
     standalone: true,
     imports: [
         CommonModule, FormsModule, TableModule, DialogModule, RippleModule,
@@ -43,7 +43,7 @@ import { Produto } from '../../models/produto';
         }
     `]
 })
-export class TableProductsDemo implements OnInit {
+export class TableProducts implements OnInit {
     @ViewChild('dt') dt!: Table;
 
     produtos: Produto[] = [];
@@ -77,6 +77,7 @@ export class TableProductsDemo implements OnInit {
             { field: 'preco', header: 'Preço' },
             { field: 'categoria', header: 'Categoria' },
             { field: 'quantidadeEstoque', header: 'Estoque' }
+            
         ];
     }
 
