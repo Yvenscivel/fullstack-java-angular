@@ -20,10 +20,8 @@ public class ProdutoController {
 
 private final ProdutoService service;
 
-@PostMapping("/lote")
-public ResponseEntity<List<Produto>> criarEmLote(
-
-    @RequestBody @Valid List<Produto> produtos){
+    @PostMapping("/lote")
+    public ResponseEntity<List<Produto>> criarEmLote(@RequestBody @Valid List<Produto> produtos){
         List<Produto> produtosSalvos = service.salvarEmLote(produtos);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtosSalvos);
     }
