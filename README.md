@@ -6,6 +6,20 @@ A aplicação consiste em um **CRUD de produtos** para uma **loja de variedades*
 
 ---
 
+## 🌐 Aplicação em Produção (Deploy)
+
+A aplicação está disponível online, com **front-end e back-end publicados em ambiente de produção**:
+
+* **Front-end (Angular – Vercel)**
+  🔗 [https://fullstack-java-angular-lojin-git-fc6084-yvens-projects-524ce555.vercel.app/?_vercel_share=a6VNR0RrrprSiEXpPMycMYAzzkO6AUCo](https://fullstack-java-angular-lojin-git-fc6084-yvens-projects-524ce555.vercel.app/?_vercel_share=a6VNR0RrrprSiEXpPMycMYAzzkO6AUCo)
+
+* **Back-end (API Spring Boot – Render)**
+  🔗 [https://api-projeto-loja.onrender.com/api/produtos](https://api-projeto-loja.onrender.com/api/produtos)
+
+Esses ambientes permitem acessar e testar a aplicação sem necessidade de execução local.
+
+---
+
 ## 🧩 Funcionalidades
 
 * Cadastrar produtos
@@ -19,6 +33,26 @@ A aplicação consiste em um **CRUD de produtos** para uma **loja de variedades*
 * Cálculo do valor total em estoque
 * Validação de dados no back-end
 * Tratamento adequado de erros HTTP
+
+---
+
+## 📸 Screenshots
+
+Aqui estão algumas telas da aplicação em funcionamento:
+
+### Dashboard
+
+<div align="center">
+  <img src="./assets/dashboard.png" alt="Screenshot da tela de Dashboard" width="800px">
+  <p><i>Visão geral e estatísticas do estoque na dashboard.</i></p>
+</div>
+
+### Listagem de Produtos
+
+<div align="center">
+  <img src="./assets/produtos.png" alt="Screenshot da tela de Listagem de Produtos" width="800px">
+  <p><i>Página com a listagem de todos os produtos, filtros e paginação.</i></p>
+</div>
 
 ---
 
@@ -50,11 +84,12 @@ A aplicação consiste em um **CRUD de produtos** para uma **loja de variedades*
 
 ## 📂 Estrutura do Repositório
 
-```text
+```
 fullstack-java-angular/
 │
 ├── backend/    → API REST em Spring Boot
 ├── frontend/   → Aplicação Angular
+├── assets/     → Imagens de demonstração (Screenshots)
 └── README.md
 ```
 
@@ -90,9 +125,7 @@ mvn spring-boot:run
 
 ### 🔗 A API estará disponível em:
 
-```
-http://localhost:8080
-```
+`http://localhost:8080`
 
 ---
 
@@ -125,9 +158,7 @@ ng serve
 
 ### 🔗 A aplicação estará disponível em:
 
-```
-http://localhost:4200
-```
+`http://localhost:4200`
 
 ---
 
@@ -165,4 +196,5 @@ http://localhost:4200
 
 **Yvens Almeida**
 Desafio Técnico – DRC Consultoria em TI
+
 📅 Janeiro / 2026
