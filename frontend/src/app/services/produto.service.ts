@@ -2,14 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Produto } from '../models/produto';
-
+import { environment } from '../../environments/environment'; 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ProdutoService {
 
-  private readonly API = "http://localhost:8080/api/produtos";
+  private readonly API = environment.api;
   private http = inject(HttpClient);
 
   listarTodos(): Observable<Produto[]>{
